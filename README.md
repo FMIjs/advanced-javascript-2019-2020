@@ -5,6 +5,7 @@
 * [Gheorgi Penkov](https://www.linkedin.com/in/penkov/)
 * [Ilia Idakiev](https://www.linkedin.com/in/idakiev/)
 * [Aleksander Kostov](https://www.linkedin.com/in/aleksander-kostov-800509105/)
+* [George Dimov](https://www.linkedin.com/in/george-dimov-626537126/)
 
 ## Course Website from last year
 
