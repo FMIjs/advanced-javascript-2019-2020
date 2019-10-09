@@ -16,37 +16,39 @@ var arr = [
 
 // Task 2 - fix this
 // from https://www.geeksforgeeks.org/direction-point-line-segment/
-var LEFT = -1;
+var LEFT = 0;
 var RIGHT = 1;
-var ZERO = 0;
-function directionOfPoint(Ax, Ay, Bx, By, Px, Py) {
+var ZERO = 2;
+var TEXT = ['LEFT', 'RIGHT', 'ON THE LINE'];
+function directionOfPoint(a, b, p) {
   // subtracting co-ordinates of point A from
   // B and P, to make A as origin
-  Bx -= Ax;
-  By -= Ay;
-  Px -= Ax;
-  Py -= Ay;
+  var bx = b[0] - a[0];
+  var by = b[1] - a[1];
+  var px = p[0] - a[0];
+  var py = p[1] - a[1];
   // Determining cross Product
-  var cp = Bx * Py - By * Px;
+  var cp = bx * py - by * px;
   if (cp > 0)          // return RIGHT if cross product is positive
-
     return RIGHT;
   if (cp < 0)         // return LEFT if cross product is negative
-
     return LEFT;
   // return ZERO if cross product is zero.
   return ZERO;
 }
-A = [-30, 10]; B = [29, -15];
-var points = [[15, 28], [22, 11], [10, 22], [-10, 11], [-5 - 10]];
+var a = [-30, 10];
+var b = [29, -15];
+var points = [[15, 28], [22, 11], [10, 22], [-10, 11], [-5, -10]];
 for (var i = 0; i < points.length; i++) {
-  P = points[i];
-  res = directionOfPoint(A[0], A[1], B[0], B[1], P[0], P[1]);
-  if (res == -1) {
-    console.log("point " + P + " is LEFT of " + A + B);
-  } else if (res == 1) {
-    console.log("point " + P + " is RIGHT of " + A + B);
-  } else if (res == 0) {
-    console.log("point " + P + " is ON THE LINE " + A + B);
-  }
+  var p = points[i];
+  var res = directionOfPoint(a, b, p);
+  // if (res === -1) {
+  //   console.log("point " + p + " is LEFT of " + a + ' ' + b);
+  // } else if (res === 1) {
+  //   console.log("point " + p + " is RIGHT of " + a + ' ' + b);
+  // } else if (res === 0) {
+  //   console.log("point " + p + " is ON THE LINE " + a + ' ' + b);
+  // }
+
+  console.log("point " + p + " is " + TEXT[res] + " of " + a + ' ' + b);
 }
