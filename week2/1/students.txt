@@ -1,4 +1,4 @@
-Georgi Georgiev 72447 'Information systems'
-Dimitur Hristov 44059 'Informatics'
-Victor Petrov 23051 'Maths'
-Zlatka Gincheva 66706 'Maths'
+Georgi Georgiev 72447 5 5 6
+Dimitur Hristov 44059 2 2 4
+Victor Petrov 23051 4 5 6
+Zlatka Gincheva 66706 2 3 6
