@@ -1,0 +1,4 @@
+Georgi Georgiev 72447 'Information systems'
+Dimitur Hristov 44059 'Informatics'
+Victor Petrov 23051 'Maths'
+Zlatka Gincheva 66706 'Maths'

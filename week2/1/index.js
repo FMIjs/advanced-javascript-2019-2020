@@ -16,7 +16,9 @@ var arr = [
 
 // Task 2 - fix this
 // from https://www.geeksforgeeks.org/direction-point-line-segment/
-const [LEFT, RIGHT, ZERO] = [-1, 1, 0];
+var LEFT = -1;
+var RIGHT = 1;
+var ZERO = 0;
 function directionOfPoint(Ax, Ay, Bx, By, Px, Py) {
   // subtracting co-ordinates of point A from
   // B and P, to make A as origin
@@ -27,8 +29,10 @@ function directionOfPoint(Ax, Ay, Bx, By, Px, Py) {
   // Determining cross Product
   var cp = Bx * Py - By * Px;
   if (cp > 0)          // return RIGHT if cross product is positive
+
     return RIGHT;
   if (cp < 0)         // return LEFT if cross product is negative
+
     return LEFT;
   // return ZERO if cross product is zero.
   return ZERO;
