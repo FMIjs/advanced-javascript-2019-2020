@@ -1,3 +1,4 @@
+// Task 1 - Implement event emitter
 function EventEmitter() {
   var subs = {};
 
@@ -21,25 +22,55 @@ function EventEmitter() {
     // subs[eventName].forEach(cb => cb(data));
 
     (subs[eventName] || []).forEach(cb => cb(data));
+  };
+}
+
+// var emitter = new EventEmitter();
+
+// var unsubscribe = emitter.subscribe('event', function (data) {
+//   console.log(data, 1);
+// });
+
+// emitter.subscribe('event', function (data) {
+//   console.log(data, 2);
+// });
+
+// emitter.subscribe('event', function (data) {
+//   console.log(data, 3);
+// });
+
+// unsubscribe();
+
+// setTimeout(function () {
+//   emitter.emit('event', { value: 1000 });
+// }, 6000);
+
+// Task 2 - Extend the event emitter to FileEmitter
+var fs = require('fs');
+
+function FileEmitter(config) {
+  config = config || {};
+  EventEmitter.call(this);
+  var _emit = this.emit;
+  this.emit = function (fileName) { // monkey patching
+    fs.readFile(fileName, {
+      encoding: config.encoding || 'utf-8'
+    }, function (err, content) {
+      if (err) { console.error(err); return; }
+      _emit(fileName, content);
+    });
   }
 }
 
-var emitter = new EventEmitter();
+FileEmitter.prototype = Object.create(EventEmitter.prototype);
 
-var unsubscribe = emitter.subscribe('event', function (data) {
-  console.log(data, 1);
+var readFileEmitter = new FileEmitter();
+
+
+readFileEmitter.subscribe('text.txt', function (fileContents) {
+  console.log(fileContents);
 });
 
-emitter.subscribe('event', function (data) {
-  console.log(data, 2);
-});
+readFileEmitter.emit('text.txt');
 
-emitter.subscribe('event', function (data) {
-  console.log(data, 3);
-});
-
-unsubscribe();
-
-setTimeout(function () {
-  emitter.emit('event', { value: 1000 });
-}, 6000);
+// > sdafgvskfadwlsdnfxvkdw;las,xz.mcnfdkjlek;as/`z
