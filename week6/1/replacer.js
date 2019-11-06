@@ -26,6 +26,7 @@ class RevisionStream extends Transform {
   }
 
   _flush() {
+    if (!this.rest) { return; }
     this.push(this.revision(this.rest));
   }
 
