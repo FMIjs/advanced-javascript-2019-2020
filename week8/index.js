@@ -2,6 +2,9 @@ const express = require('express');
 const port = 8080;
 const app = express();
 
+// parse json forms and put all the values inside req.body
+app.use(express.json());
+
 const apiRouter = express.Router();
 
 apiRouter.get('/test', function (req, res) {
