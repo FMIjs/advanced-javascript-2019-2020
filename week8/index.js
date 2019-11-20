@@ -1,17 +1,12 @@
 const express = require('express');
 const port = 8080;
 const app = express();
+const apiRouter = require('./api');
 
 // parse json forms and put all the values inside req.body
 app.use(express.json());
 
-const apiRouter = express.Router();
-
-apiRouter.get('/test', function (req, res) {
-  res.send('a');
-});
-
-app.use('/api/user', apiRouter);
+app.use('/api', apiRouter);
 
 function globalErrorHandler(err, req, res, next) {
   if (err.message === 'Unauthorized') {
@@ -20,22 +15,6 @@ function globalErrorHandler(err, req, res, next) {
   }
   res.status(500).send('Server error!');
 }
-
-function myMiddleware(req, res, next) {
-  if (req.headers['access-token']) {
-    next();
-    return;
-  }
-  next(new Error('Unauthorized'));
-}
-
-app.get('/', myMiddleware, function (req, res) {
-  res.send('Hello!');
-});
-
-app.get('/api', function (req, res) {
-  res.send('Hello api!');
-});
 
 app.use(globalErrorHandler);
 
