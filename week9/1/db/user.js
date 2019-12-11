@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: function(v) {
+      validator: function (v) {
         return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
           v
         );
@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-userSchema.pre("save", function(done) {
+userSchema.pre("save", function (done) {
   if (!this.isModified("password")) {
     done();
     return;
