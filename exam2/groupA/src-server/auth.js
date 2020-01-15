@@ -1,4 +1,5 @@
 const COOKIE_NAME = 'cookie';
+const { UserModel } = require('./db');
 
 function login(req, res, next) {
   const { email, password } = req.body;
@@ -8,8 +9,11 @@ function login(req, res, next) {
     return;
   }
 
-  user.findOne({ where: { email } })
-    .then(user => Promise.all([Promise.resolve(user), user ? user.authenticate(password) : false]))
+  userModel.findOne({ where: { email } })
+    .then(user => Promise.all([
+      Promise.resolve(user),
+      // ... authenticate
+    ]))
     .then(([user, isAuthenticated]) => {
       if (!user || !isAuthenticated) {
         // ...
