@@ -34,19 +34,7 @@ export class FileData extends HTMLElement {
   }
 
   openFileDataSocket() {
-    // const socket = io();
-    // fetch('http://localhost:8082/api')
-    //   .then(response => {
-    //     if (response.status !== 200) { console.error(response.status); return; }
-    //     response.json().then((data) => {
-    //       store.list.entities = data;
-    //       store.list.isReady = true;
-
-    //       this.fileData = data;
-    //       this.render();
-    //     });
-    //   })
-    //   .catch(console.error);
+    // ...
   }
 
 
