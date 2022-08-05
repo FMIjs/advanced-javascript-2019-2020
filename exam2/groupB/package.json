@@ -17,7 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "lit-html": "^1.0.0-rc.2",
     "method-override": "^3.0.0",
-    "mongoose": "5.3.1",
+    "mongoose": "5.7.5",
     "path-to-regexp": "^3.0.0",
     "socketio": "^1.0.0",
     "webpack": "^4.29.0",
